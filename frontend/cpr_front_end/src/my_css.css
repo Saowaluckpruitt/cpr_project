@@ -1,0 +1,106 @@
+/* homepage    */
+
+.my-bg {
+  background-image: url("../public/pic/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.buttonAnime {
+  display: flex;
+  padding: 0 10px;
+  font-size: 72px;
+  color: #ffffff;
+  border: solid 5px #600808;
+  text-decoration: none;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.611);
+}
+.buttonAnime:hover {
+  animation: cpr 1s ease-in-out;
+}
+@keyframes cpr {
+  0% {
+    box-shadow: 0 0 30px #edeabb, 0 0 80px #f70505;
+    color: #50c3dd;
+    border: solid 2px #a6dd31;
+  }
+}
+
+/*heart  rate rythm effect*/
+.rythm-effect {
+  background-color: #ea0606;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  position: relative;
+}
+.circle {
+  position: absolute;
+  background-color: #e85050;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  opacity: 0.5;
+  animation: pulse 3s ease-out infinite;
+}
+.circle:nth-of-type(1) {
+  animation-delay: -0.5s;
+}
+.circle:nth-of-type(2) {
+  animation-delay: -1s;
+}
+.circle:nth-of-type(3) {
+  animation-delay: -1.5s;
+}
+
+@keyframes pulse {
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
+
+/*Adrenaline rythm*/
+.Ar-effect {
+  background-color: #e2ea06;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  position: relative;
+}
+.Arcircle {
+  position: absolute;
+  background-color: #c7e78f;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  opacity: 0.5;
+  animation: pulse 3s ease-out infinite;
+}
+.Arcircle:nth-of-type(1) {
+  animation-delay: -0.5s;
+}
+.Arcircle:nth-of-type(2) {
+  animation-delay: -1s;
+}
+.Arcircle:nth-of-type(3) {
+  animation-delay: -1.5s;
+}
+
+@keyframes pulse {
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
+/*img effect*/
+.img {
+  width: 200px;
+  height: 250px;
+  box-shadow: 5px 5px #242423;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  outline: 1px solid #7d7d79;
+  outline-offset: -8px;
+}
