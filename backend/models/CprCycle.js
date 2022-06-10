@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const CprCycle = sequelize.define("CprCyle", {
+  const CprCycle = sequelize.define("CprCycle", {
     temperature: {
       type: DataTypes.FLOAT,
       allowNull: false,

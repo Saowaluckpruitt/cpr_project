@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+const { sequelize } = require("./models/index");
+sequelize.sync({ force: true });
 
 const app = express();
 app.use(cors());

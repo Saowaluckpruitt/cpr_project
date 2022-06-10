@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const IvFluid = sequelize.define("IvFluid ", {
+  const IvFluid = sequelize.define("IvFluid", {
     name: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
     });
+    console.log("hoijwdpowpeof");
   };
   return AdrenalineTime;
 };

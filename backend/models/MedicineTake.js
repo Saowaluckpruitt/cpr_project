@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     MedicineTake.belongsTo(models.CprCycle, {
       foreignKey: {
-        name: "CprCycle",
+        name: "CprCycleId",
         allowNull: false,
       },
       onUpdate: "CASCADE",
