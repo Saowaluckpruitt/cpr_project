@@ -13,12 +13,11 @@ module.exports = (sequelize, DataTypes) => {
     AdrenalineTime.belongsTo(models.CprCycle, {
       foreignKey: {
         name: "CprCycleId",
-        allowNull: false,
+        allowNull: true,
       },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
     });
-    console.log("hoijwdpowpeof");
   };
   return AdrenalineTime;
 };

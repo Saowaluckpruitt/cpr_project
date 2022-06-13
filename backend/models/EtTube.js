@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     EtTube.belongsTo(models.CprCycle, {
       foreignKey: {
         name: "CprCycleId",
-        allowNull: false,
+        allowNull: true,
       },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",

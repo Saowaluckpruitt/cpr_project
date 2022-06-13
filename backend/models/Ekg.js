@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     Ekg.belongsTo(models.CprCycle, {
       foreignKey: {
         name: "CprCycleId",
-        allowNull: false,
+        allowNull: true,
       },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",

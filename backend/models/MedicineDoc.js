@@ -1,15 +1,16 @@
 module.exports = (sequelize, DataTypes) => {
-  const MedicineDoc = sequelize.define("MedicineDoc", {
+  const MedicineDocs = sequelize.define("MedicineDocs", {
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+
+      unique: true,
       validate: {
         notEmpty: true,
       },
     },
     medicinePic: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         notEmpty: true,
       },
@@ -29,11 +30,14 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   });
-  MedicineDoc.associate = (models) => {
-    MedicineDoc.hasMany(models.MedicineTake, {
+  MedicineDocs.associate = (models) => {
+    MedicineDocs.hasMany(models.MedicineTake, {
+      foreignKey: {
+        name: "MedicineDocId",
+      },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
     });
   };
-  return MedicineDoc;
+  return MedicineDocs;
 };

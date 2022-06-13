@@ -1,9 +1,10 @@
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { Op } = require("sequelize");
+
 const createError = require("../utils/createError");
-const { User } = require("../models/User");
+const { User } = require("../models");
+const sequelize = require("sequelize");
 
 //CREATE TOKEN
 const createToken = (payload) =>
@@ -13,23 +14,21 @@ const createToken = (payload) =>
 
 exports.login = async (req, res, next) => {
   try {
-    const { phoneNumber, password } = ree.body;
+    const { userName, password } = req.body;
     const user = await User.findOne({
-      where: {
-        [Op.or]: [{ phoneNumber: phoneNumber }],
-      },
+      where: { userName },
     });
 
     if (!user) {
       createError("Invalid credential", 400);
     }
 
-    const isMatch = await bcrypt.compare(password, User.password);
-    if (isMatch) {
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
       createError("Invalid credential", 400);
     }
 
-    const token = createToken({ id: User.id });
+    const token = createToken({ id: user.id });
     res.json({ token });
   } catch (err) {
     next(err);
@@ -58,11 +57,11 @@ exports.register = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(password, 12);
     const user = await User.create({
       userName,
-      phoneNumber: isPhoneNumber,
+      phoneNumber,
       password: hashedPassword,
     });
 
-    const token = createToken({ id: User.id });
+    const token = createToken({ id: user.id });
     res.status(201).json({ token });
   } catch (err) {
     next(err);

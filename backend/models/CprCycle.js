@@ -40,7 +40,6 @@ module.exports = (sequelize, DataTypes) => {
     CprCycle.hasMany(models.CprTime, {
       foreignKey: {
         name: "CprCycleId",
-        allowNull: false,
       },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",

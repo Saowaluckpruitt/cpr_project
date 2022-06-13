@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     userName: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         notEmpty: true,
       },
@@ -17,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     profilePic: DataTypes.STRING,
+    admin: DataTypes.BOOLEAN,
   });
 
   // user associate
@@ -25,8 +27,9 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.CprCycle, {
       foreignKey: {
         name: "userId",
-        allowNull: false,
+        allowNull: true,
       },
+      constraints: false,
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
     });

@@ -10,10 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   MedicineTake.associate = (models) => {
-    MedicineTake.belongsTo(models.MedicineDoc, {
+    MedicineTake.belongsTo(models.MedicineDocs, {
       foreignKey: {
         name: "MedicineDocId",
-        allowNull: false,
       },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
@@ -21,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     MedicineTake.belongsTo(models.CprCycle, {
       foreignKey: {
         name: "CprCycleId",
-        allowNull: false,
+        allowNull: true,
       },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
