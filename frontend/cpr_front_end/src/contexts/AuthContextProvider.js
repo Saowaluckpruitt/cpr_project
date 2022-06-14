@@ -21,7 +21,6 @@ function AuthContextProvider({ children }) {
   }, []);
 
   const register = async (input) => {
-    console.log("register");
     const res = await axios.post("/register", input);
     setToken(res.data.token);
   };
