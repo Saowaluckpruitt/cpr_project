@@ -1,19 +1,55 @@
-// import { createContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "../config/axios";
+import { getToken, clearToken, setToken } from "../service/localStorageService";
 
-// import Service from "./service/localStorageService";
+const AuthContext = createContext();
 
-// export const AuthContext = createContext();
+function AuthContextProvider({ children }) {
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
-// function AuthContextProvider({ children }) {
-//   const [isAthenticated, setIsAuthenticated] = useState(Service.getToken());
-//   const [user, setUser] = useState({});
-//   retrun(
-//     <AuthContext.Provider
-//       value={{ isAthenticated, setIsAuthenticated, user, setUser }}
-//     >
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// }
+  useEffect(() => {
+    const fetchMe = async () => {
+      const token = getToken();
+      if (!token) {
+        navigate("/login");
+      }
+    };
 
-// export default AuthContextProvider;
+    fetchMe();
+  }, []);
+
+  const register = async (input) => {
+    console.log("register");
+    const res = await axios.post("/register", input);
+    setToken(res.data.token);
+  };
+
+  const login = async (userName, password) => {
+    const res = await axios.post("/login", { userName, password });
+    setToken(res.data.token);
+    const resMe = await axios.get("/users/me");
+    setUser(resMe.data.user);
+  };
+
+  const logout = () => {
+    clearToken();
+    setUser(null);
+  };
+
+  return (
+    <AuthContext.Provider value={{ register, user, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+const useAuth = () => {
+  const ctx = useContext(AuthContext);
+  return ctx;
+};
+
+export default AuthContextProvider;
+
+export { AuthContext, useAuth };
