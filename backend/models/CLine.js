@@ -2,15 +2,15 @@ module.exports = (sequelize, DataTypes) => {
   const CLine = sequelize.define("CLine", {
     number: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      allowNull: true,
     },
     mark: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      allowNull: true,
     },
     time: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
   });
   CLine.associate = (models) => {

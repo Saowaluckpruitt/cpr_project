@@ -2,15 +2,15 @@ module.exports = (sequelize, DataTypes) => {
   const Ekg = sequelize.define("Ekg", {
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     charge: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     time: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
   });
   Ekg.associate = (models) => {

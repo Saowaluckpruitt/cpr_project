@@ -2,15 +2,15 @@ module.exports = (sequelize, DataTypes) => {
   const CprTime = sequelize.define("CprTime", {
     startTime: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     stopTime: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     checkPulseTime: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
   });
   CprTime.associate = (models) => {

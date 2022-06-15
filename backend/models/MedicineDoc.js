@@ -17,14 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     detail: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
       validate: {
         notEmpty: true,
       },
     },
     howToUse: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
       validate: {
         notEmpty: true,
       },

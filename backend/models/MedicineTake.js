@@ -2,11 +2,11 @@ module.exports = (sequelize, DataTypes) => {
   const MedicineTake = sequelize.define("MedicineTake", {
     dose: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      allowNull: true,
     },
     time: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   });
   MedicineTake.associate = (models) => {

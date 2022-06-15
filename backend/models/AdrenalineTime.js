@@ -2,11 +2,11 @@ module.exports = (sequelize, DataTypes) => {
   const AdrenalineTime = sequelize.define("AdrenalineTime", {
     startTime: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     stopTime: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
   });
   AdrenalineTime.associate = (models) => {

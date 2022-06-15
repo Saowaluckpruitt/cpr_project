@@ -2,23 +2,23 @@ module.exports = (sequelize, DataTypes) => {
   const IvFluid = sequelize.define("IvFluid", {
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     maintained: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false,
+      defaultValue: true,
     },
     loaded: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false,
+      defaultValue: true,
     },
     dose: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      allowNull: true,
     },
     time: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
   });
   IvFluid.associate = (models) => {

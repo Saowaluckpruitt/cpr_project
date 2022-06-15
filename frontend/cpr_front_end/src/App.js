@@ -5,7 +5,7 @@ import Menu from "./route/Menu";
 import HomePage from "./route/HomePage";
 import Login from "./component/auth/Login";
 import Register from "./component/auth/Register";
-import LinkCprAdrenalineTime from "./route/LinkCprAdrenalineTime";
+import LinkCprAdrenalineTime from "./component/cpCycle/LinkCprAdrenalineTime";
 import GroupEtEkgCline from "./component/groupEtEkgCline/GroupEtEkgCline";
 import IvMedicineFluid from "./route/IvMedicineFluid";
 import MedicineLibary from "./route/MedicineLibary";

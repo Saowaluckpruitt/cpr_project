@@ -24,15 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   // user associate
 
   User.associate = (models) => {
-    User.hasMany(models.CprCycle, {
-      foreignKey: {
-        name: "userId",
-        allowNull: true,
-      },
-      constraints: false,
-      onUpdate: "CASCADE",
-      onDelete: "CASCADE",
-    });
+    // User.hasMany(models.CprCycle);
   };
   return User;
 };

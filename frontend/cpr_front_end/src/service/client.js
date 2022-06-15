@@ -1,17 +1,22 @@
 import axios from "../config/axios";
-import { setEkg, getEkg } from "../service/ekgStorage";
 
-//cpr
 export const createCprCycle = async (cprStart) => {
   const startCprCycle = await axios.post("/cprCycle", { cprStart });
 
   return startCprCycle.data.cprCycle;
 };
 
-//ekg
-// const idEkg = getEkg;
-// export const confirmEkg = async (name, charge) => {
+export const createAdrenalineTime = async (startTime, cprCycleId) => {
+  const createAdrenalineTime = await axios.post("/AdrenalineTime", {
+    startTime,
+    cprCycleId,
+  });
+  console.log(createAdrenalineTime);
+  return createAdrenalineTime.data.adrenalineTime;
+};
 
-//   const confirm = await axios.post("/ekg", { name, charge });
-//   return setEkg(confirm.data.idEkg);
-// };
+export const createCLine = async (number, mark) => {
+  const takeCLine = await axios.post("/cLine", { number, mark });
+
+  return takeCLine.data.CLine;
+};

@@ -2,22 +2,22 @@ module.exports = (sequelize, DataTypes) => {
   const CprCycle = sequelize.define("CprCycle", {
     temperature: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      allowNull: true,
       defaultValue: 0.0,
     },
     pulse: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       defaultValue: 0,
     },
     respiratoryRate: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       defaultValue: 0,
     },
     bloodPressure: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       defaultValue: "",
     },
     cprStart: {
@@ -26,11 +26,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     cprEnd: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     ROSC: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      allowNull: true,
       defaultValue: true,
     },
   });
@@ -88,6 +88,7 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
     });
+    CprCycle.belongsTo(models.User);
   };
   return CprCycle;
 };
