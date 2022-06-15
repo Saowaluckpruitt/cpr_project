@@ -1,11 +1,16 @@
 import React, { useState } from "react";
+import { createEkg } from "../../service/client";
 
 export default function Ekg() {
   const [name, setName] = useState("");
   const [charge, setCharge] = useState("");
+
   const handleConfirmEkg = async (e) => {
     try {
       e.preventDefault();
+      const cprCycleId = localStorage.getItem("cprCycleId");
+      const ekg = await createEkg(name, charge, cprCycleId);
+      console.log(ekg);
     } catch (err) {
       console.log("Ekg confirm err");
     }
