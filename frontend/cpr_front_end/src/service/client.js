@@ -15,11 +15,11 @@ export const createAdrenalineTime = async (startTime, cprCycleId) => {
   return createAdrenalineTime.data.adrenalineTime;
 };
 
-export const createCLine = async (number, mark, time, cprCycleId) => {
+export const createCLine = async (number, mark, cprCycleId) => {
   const takeCLine = await axios.post("/cLine", {
     number,
     mark,
-    time,
+
     cprCycleId,
   });
 
@@ -33,14 +33,14 @@ export const createEkg = async (name, charge, cprCycleId) => {
     cprCycleId,
   });
 
-  return ekg.data.Ekg;
+  return ekg.data.ekg;
 };
 
-export const createEtTube = async (number, mark, time, cprCycleId) => {
+export const createEtTube = async (number, mark, cprCycleId) => {
   const makeEtTube = await axios.post("/etTube", {
     number,
     mark,
-    time,
+
     cprCycleId,
   });
 

@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-// import { createEtTube } from "../../service/client";
+import { createEtTube } from "../../service/client";
 
-export default function etTube() {
-  // const [number, setNumber] = useState("");
-  // const [mark, setMark] = useState("");
+export default function EtTube() {
+  const [number, setNumber] = useState("");
+  const [mark, setMark] = useState("");
 
-  // const handleConfirmEtTube = async (e) => {
-  //   try {
-  //     e.preventDefault();
-  //     const cprCycleId = localStorage.getItem("cprCycleId");
-  //     const etTube = await createEtTube(number, mark, cprCycleId);
-  //     console.log(etTube);
-  //   } catch (err) {
-  //     console.log("et tube err");
-  //   }
-  // };
+  const handleConfirmEtTube = async (e) => {
+    try {
+      e.preventDefault();
+      const cprCycleId = localStorage.getItem("cprCycleId");
+      const etTube = await createEtTube(number, mark, cprCycleId);
+      console.log(etTube);
+    } catch (err) {
+      console.log("et tube err");
+    }
+  };
 
   return (
     <div class="mt-4 block bg-black opacity-82 pb-10 border-2 border-lime">
-      <form>
+      <form method="POST" onClick={handleConfirmEtTube}>
         <span class="w-full h-full object-center object-cover lg:w-full lg:h-full text-black bg-lime">
           {" "}
           Et-tube.
@@ -34,8 +34,8 @@ export default function etTube() {
               id="No"
               class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 border-lime rounded-md"
               placeholder="Et-tube No."
-              // value={number}
-              // onChange={(e) => setNumber(e.target.value)}
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
             />
           </div>
         </div>
@@ -50,8 +50,8 @@ export default function etTube() {
               id="Mark"
               class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 border-lime rounded-md"
               placeholder="Et-tube mark"
-              // value={mark}
-              // onChange={(e) => setMark(e.target.value)}
+              value={mark}
+              onChange={(e) => setMark(e.target.value)}
             />
           </div>
           <button

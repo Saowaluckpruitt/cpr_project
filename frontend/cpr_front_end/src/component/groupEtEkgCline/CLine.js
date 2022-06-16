@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { createCLine } from "../../service/client";
 
-export default function cLine() {
-  // const [cLineId, setClineId] = useState("");
-  // const [number, setNumber] = useState("");
-  // const [mark, setMark] = useState("");
+export default function CLine() {
+  const [cLineId, setClineId] = useState("");
+  const [number, setNumber] = useState("");
+  const [mark, setMark] = useState("");
 
-  // const setCLine = async () => {
-  //   const cprCycleId = localStorage.getItem("cprCycleId");
-  //   const Cline = await createCLine(number, mark, time, cprCycleId);
-  //   setClineId(Cline.id);
-  // };
+  const setCLine = async (e) => {
+    e.preventDefault();
+    const cprCycleId = localStorage.getItem("cprCycleId");
+    const Cline = await createCLine(number, mark, cprCycleId);
+    setClineId(Cline.id);
+  };
 
   return (
     <div class="mt-4 block  bg-black opacity-82 pb-10 border-2 border-lime ">
-      <form method="POST">
+      <form method="POST" onClick={setCLine}>
         <span class="w-full h-full object-center object-cover lg:w-full lg:h-full text-black bg-lime">
           C-line.
         </span>
@@ -29,8 +30,8 @@ export default function cLine() {
               id="No"
               class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 border-lime rounded-md"
               placeholder="C-line No."
-              // value={number}
-              // onChange={(e) => setNumber(e.target.value)}
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
             />
           </div>
         </div>
@@ -45,6 +46,8 @@ export default function cLine() {
               id="Mark"
               class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 border-lime rounded-md"
               placeholder="C-line mark"
+              value={mark}
+              onChange={(e) => setMark(e.target.value)}
             />
           </div>
         </div>
