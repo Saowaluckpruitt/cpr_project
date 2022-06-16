@@ -55,3 +55,20 @@ export const createCprTime = async (startTime, cprCycleId) => {
   console.log(createCprTime);
   return createCprTime.data.cprTime;
 };
+
+export const createIvFluid = async (
+  iv,
+  maintained,
+  loaded,
+  dose,
+  cprCycleId
+) => {
+  const createIvFluid = await axios.post("/ivFluid", {
+    iv,
+    maintained,
+    loaded,
+    dose,
+    cprCycleId,
+  });
+  return createIvFluid.data.ivFluid;
+};
