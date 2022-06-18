@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { createMedicineTake } from "../../service/client";
 
-export default function MedicineForm({ doc }) {
+export default function MedicineForm({ doc, cprCycle }) {
   const [dose, setDose] = useState("");
 
   const handleMedicineFormDose = async (e) => {
     try {
       e.preventDefault();
-      const cprCycleId = localStorage.getItem("cprCycleId");
-      const medicineDose = await createMedicineTake(dose, cprCycleId, doc.id);
+
+      const medicineDose = await createMedicineTake(dose, cprCycle.id, doc.id);
       setDose("");
       console.log(medicineDose);
     } catch (err) {

@@ -3,12 +3,12 @@ import EtTube from "./EtTube";
 import CLine from "./CLine";
 import Ekg from "./Ekg";
 
-export default function GroupEtEkgCline() {
+export default function GroupEtEkgCline({ cprCycle }) {
   return (
-    <div className="w-full min-h-80  aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none block mt-10 ">
-      <EtTube />
-      <CLine />
-      <Ekg />
+    <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8  my-bg1">
+      <EtTube cprCycle={cprCycle.id} />
+      <CLine cprCycle={cprCycle.id} />
+      <Ekg cprCycle={cprCycle.id} />
     </div>
   );
 }

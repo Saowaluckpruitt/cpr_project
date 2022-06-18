@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createIvFluid } from "../../service/client";
 
-export default function NameIv({ iv }) {
+export default function NameIv({ iv, cprCycle }) {
   const [name, setName] = useState("");
   const [maintained, setMaintained] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -10,13 +10,13 @@ export default function NameIv({ iv }) {
   const handleConfirmIvfluuid = async (e) => {
     try {
       e.preventDefault();
-      const cprCycleId = localStorage.getItem("cprCycleId");
+
       const ivFluid = await createIvFluid(
         iv,
         maintained,
         loaded,
         dose,
-        cprCycleId
+        cprCycle.id
       );
       setMaintained("");
       setLoaded("");

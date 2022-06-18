@@ -2,12 +2,30 @@
   font-size: 36px;
 }
 /* homepage    */
-
+.bgpy {
+  padding-top: 200px;
+}
 .my-bg {
   background-image: url("../public/pic/bg.png");
   background-size: cover;
-  background-repeat: no-repeat;
 }
+.my-bg1 {
+  background-image: url("../public/pic/swift.png");
+  background-size: cover;
+}
+.my-bg2 {
+  background-image: url("../public/pic/blue.jpg");
+  background-size: cover;
+}
+.my-bg3 {
+  background-image: url("../public/pic/back.jpg");
+  background-size: cover;
+}
+.my-bg4 {
+  background-image: url("../public/pic/smoke.jpg");
+  background-size: cover;
+}
+
 .buttonAnime {
   display: flex;
   padding: 0 10px;

@@ -12,7 +12,7 @@ export default function TimerStarCpr() {
     return { total, seconds, minute, hours };
   };
 
-  const startTime = (e) => {
+  const formatTime = (e) => {
     let { total, seconds, minute, hours } = getTimerAlert(e);
     if (total >= 0) {
       setTimer(
@@ -29,7 +29,10 @@ export default function TimerStarCpr() {
     setTimer("00:30:00");
     if (Ref.current) clearInterval(Ref.current);
     const id = setInterval(() => {
-      startTime(e);
+      // if (new Date() > e) {
+      //   // Stop  and navigate  to print
+      // }
+      formatTime(e);
     }, 1000);
     Ref.current = id;
   };
@@ -48,9 +51,8 @@ export default function TimerStarCpr() {
   };
 
   return (
-    <div className="start bg-black text-white">
+    <div className="start border-4 border-lime text-white mx-auto text-center">
       <h2 className="my-text">{timer}</h2>
-      <button onClick={onClickStart}>Start</button>
     </div>
   );
 }

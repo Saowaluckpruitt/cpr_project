@@ -4,7 +4,7 @@ const createError = require("../utils/createError");
 //create
 exports.createCprTime = async (req, res, next) => {
   try {
-    const { startTime, stopTime, checkPulseTime, CprCycleId } = req.body;
+    const { startTime, stopTime, checkPulseTime, cprCycleId } = req.body;
     const cprTime = await CprTime.create({
       startTime,
       stopTime,

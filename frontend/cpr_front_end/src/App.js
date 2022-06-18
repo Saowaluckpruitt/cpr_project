@@ -15,14 +15,11 @@ function App() {
   return (
     <>
       <Menu />
-      <HomePage />
+      {/* <HomePage /> */}
       {/* <TimerStarCpr /> */}
       {/* <Login />
-      <Register />
+      <Register /> */}
       <LinkCprAdrenalineTime />
-      <GroupEtEkgCline /> */}
-      <IvMedicineFluid />
-      <Medicine />
     </>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NameMedicine from "./NameMedicine";
 import { listMedicineDocs } from "../../service/client";
 import MedicineForm from "../ivMedicine/MedicineForm";
-export default function MedicineTake({ setCurrentMedicineDoc }) {
+export default function MedicineTake({ cprCycle }) {
   const [medicineDocs, setMedicineDocs] = useState(null);
   useEffect(() => {
     if (!medicineDocs) {
@@ -15,11 +15,11 @@ export default function MedicineTake({ setCurrentMedicineDoc }) {
   }
   return (
     <div className="bg-black opacity-90 rounded-md -space-y-px text-white">
-      <h4 className="text-white mt-4 mb-4">Medicine</h4>
+      <h4 className="text-white mt-4 mb-4 text-center">Medicine</h4>
       {medicineDocs.map((doc) => {
         return (
           <div key={`form-${doc.id}`}>
-            <MedicineForm doc={doc} />
+            <MedicineForm doc={doc} cprCycle={cprCycle} />
           </div>
         );
       })}

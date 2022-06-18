@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { createEtTube } from "../../service/client";
 
-export default function EtTube() {
+export default function EtTube({ cprCycle }) {
   const [number, setNumber] = useState("");
   const [mark, setMark] = useState("");
 
   const handleConfirmEtTube = async (e) => {
     try {
       e.preventDefault();
-      const cprCycleId = localStorage.getItem("cprCycleId");
-      const etTube = await createEtTube(number, mark, cprCycleId);
+      const etTube = await createEtTube(number, mark, cprCycle.id);
       console.log(etTube);
     } catch (err) {
       console.log("et tube err");
@@ -17,7 +16,7 @@ export default function EtTube() {
   };
 
   return (
-    <div className="mt-4 block bg-black opacity-82 pb-10 border-2 border-lime">
+    <div className="mt-4 block bg-black opacity-82  border-2 border-lime">
       <form method="POST" onClick={handleConfirmEtTube}>
         <span className="w-full h-full object-center object-cover lg:w-full lg:h-full text-black bg-lime">
           {" "}
@@ -59,7 +58,7 @@ export default function EtTube() {
           </div>
           <button
             type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-lime hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="w-full flex justify-center py-2 px-4 mt-2 border border-transparent  shadow-sm text-sm font-medium text-black bg-lime hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Confirm
           </button>
