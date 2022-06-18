@@ -8,21 +8,21 @@ import Register from "./component/auth/Register";
 import LinkCprAdrenalineTime from "./component/cpCycle/LinkCprAdrenalineTime";
 import GroupEtEkgCline from "./component/groupEtEkgCline/GroupEtEkgCline";
 import IvMedicineFluid from "./component/ivMedicine/IvMedicineFluid";
-import MedicineLibary from "./route/MedicineLibary";
-import MedicineDoc from "./route/MedicineDoc";
+import Medicine from "./component/medicineDoc/Medicine";
+import TimerStarCpr from "./component/Timer/TimerStarCpr";
 
 function App() {
   return (
     <>
       <Menu />
       <HomePage />
-      <Login />
+      {/* <TimerStarCpr /> */}
+      {/* <Login />
       <Register />
       <LinkCprAdrenalineTime />
-      <GroupEtEkgCline />
+      <GroupEtEkgCline /> */}
       <IvMedicineFluid />
-      <MedicineLibary />
-      <MedicineDoc />
+      <Medicine />
     </>
   );
 }

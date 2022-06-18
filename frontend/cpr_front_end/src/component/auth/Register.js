@@ -38,7 +38,7 @@ export default function Register() {
           >
             <div>
               <label
-                for="userName"
+                htmlFor="userName"
                 className="block text-sm font-medium text-lime"
               >
                 User Name
@@ -48,7 +48,7 @@ export default function Register() {
                   id="userName"
                   name="userName"
                   type="text"
-                  autocomplete="userName"
+                  autoComplete="userName"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   value={userName}
@@ -58,7 +58,7 @@ export default function Register() {
             </div>
             <div>
               <label
-                for="phoneNumber"
+                htmlFor="phoneNumber"
                 className="block text-sm font-medium text-lime"
               >
                 Phone Number
@@ -68,7 +68,7 @@ export default function Register() {
                   id="phoneNumber"
                   name="phoneNumber"
                   type="phoneNumber"
-                  autocomplete="email"
+                  autoComplete="email"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   value={phoneNumber}
@@ -78,7 +78,7 @@ export default function Register() {
             </div>
             <div>
               <label
-                for="email"
+                htmlFor="email"
                 className="block text-sm font-medium text-lime"
               >
                 Password
@@ -88,7 +88,7 @@ export default function Register() {
                   id="password"
                   name="password"
                   type="password"
-                  autocomplete="password"
+                  autoComplete="password"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   value={password}
@@ -98,7 +98,7 @@ export default function Register() {
             </div>
             <div>
               <label
-                for="email"
+                htmlFor="email"
                 className="block text-sm font-medium text-lime"
               >
                 Confirm Password
@@ -108,7 +108,7 @@ export default function Register() {
                   id="confirmPassword"
                   name="confirmPassword"
                   type="password"
-                  autocomplete="confirmPassword"
+                  autoComplete="confirmPassword"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   value={confirmPassword}

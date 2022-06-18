@@ -29,7 +29,7 @@ export default function Login() {
           >
             <div>
               <label
-                for="Username"
+                htmlFor="Username"
                 className="block text-sm font-medium text-lime"
               >
                 User name
@@ -39,7 +39,7 @@ export default function Login() {
                   id="username"
                   name="Username"
                   type="text"
-                  autocomplete="username"
+                  autoComplete="username"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   value={userName}
@@ -50,7 +50,7 @@ export default function Login() {
 
             <div>
               <label
-                for="password"
+                htmlFor="password"
                 className="block text-sm font-medium text-lime"
               >
                 Password
@@ -60,7 +60,7 @@ export default function Login() {
                   id="password"
                   name="password"
                   type="password"
-                  autocomplete="current-password"
+                  autoComplete="current-password"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   value={password}

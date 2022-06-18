@@ -72,3 +72,19 @@ export const createIvFluid = async (
   });
   return createIvFluid.data.ivFluid;
 };
+
+export const listMedicineDocs = async () => {
+  const medicineDocs = await axios.get("/medicineDoc");
+
+  return medicineDocs.data.medicineDocs;
+};
+
+export const createMedicineTake = async (dose, cprCycleId, medicineDocId) => {
+  const medicineTake = await axios.post("/medicineTake", {
+    dose,
+    cprCycleId,
+    medicineDocId,
+  });
+
+  return medicineTake.data.medicineTake;
+};

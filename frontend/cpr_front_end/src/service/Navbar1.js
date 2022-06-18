@@ -16,9 +16,9 @@ function Navbar() {
           </div>
 
           <div className="mt-8 ">
-            <a className="a-link " href="#">
+            <Link className="a-link " to="home">
               Home
-            </a>
+            </Link>
             <a className="a-link " href="#">
               Medicine
             </a>
