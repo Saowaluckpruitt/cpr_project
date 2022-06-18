@@ -4,11 +4,12 @@ const createError = require("../utils/createError");
 //create
 exports.createEkg = async (req, res, next) => {
   try {
-    const { name, charge, time } = req.body;
+    const { name, charge, time, cprCycleId } = req.body;
     const ekg = await Ekg.create({
       name,
       charge,
       time,
+      CprCycleId: cprCycleId,
     });
     res.status(201).json({ ekg });
   } catch (err) {

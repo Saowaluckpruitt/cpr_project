@@ -6,7 +6,7 @@ const medicineDocController = require("../controllers/medicineDocController");
 
 const authMiddleware = require("../middlewares/authenticate");
 
-router.get("/");
+router.get("/", medicineDocController.listMedicineDoc);
 router.post("/", authMiddleware, medicineDocController.createMedicinedoc);
 router.patch(
   "/:medicineDocId",

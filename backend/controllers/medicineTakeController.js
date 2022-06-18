@@ -5,12 +5,12 @@ const createError = require("../utils/createError");
 exports.createMedicineTake = async (req, res, next) => {
   console.log("medicine");
   try {
-    const { dose, time, medicineDocId, cprCycleId } = req.body;
+    const { dose, medicineDocId, cprCycleId } = req.body;
     const medicineTake = await MedicineTake.create({
       dose,
-      time,
-      medicineDocId,
-      cprCycleId,
+
+      MedicineDocId: medicineDocId,
+      CprCycleId: cprCycleId,
     });
     res.status(201).json({ medicineTake });
   } catch (err) {

@@ -4,13 +4,13 @@ const createError = require("../utils/createError");
 //create
 exports.createIvFluid = async (req, res, next) => {
   try {
-    const { name, maintained, loaded, dose, time } = req.body;
+    const { iv, maintained, loaded, dose, cprCycleId } = req.body;
     const ivFluid = await IvFluid.create({
-      name,
+      name: iv,
       maintained,
       loaded,
       dose,
-      time,
+      CprCycleId: cprCycleId,
     });
     res.status(201).json({ ivFluid });
   } catch (err) {

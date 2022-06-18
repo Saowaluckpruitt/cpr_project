@@ -1,11 +1,16 @@
 const { MedicineDocs } = require("../models");
 const createError = require("../utils/createError");
 
+exports.listMedicineDoc = async (req, res, next) => {
+  const medicineDocs = await MedicineDocs.findAll();
+  res.status(200).json({ medicineDocs });
+};
+
 //create
 exports.createMedicinedoc = async (req, res, next) => {
   try {
     const { name, medicinePic, detail, howToUse } = req.body;
-    if (!req.user.admin) {
+    if (!req.user || !req.user.admin) {
       createError("you have no permission", 403);
     }
     const medicineDoc = await MedicineDocs.create({
@@ -31,7 +36,7 @@ exports.updateMedicineDoc = async (req, res, next) => {
     if (!medicineDoc) {
       createError("medicineDoc not found", 404);
     }
-    if (!req.user.admin) {
+    if (!req.user || !req.user.admin) {
       createError("you have no permission", 403);
     }
 
@@ -53,7 +58,7 @@ exports.deletemedicineDoc = async (req, res, next) => {
     if (!medicineDoc) {
       createError("comment not found", 404);
     }
-    if (!req.user.admin) {
+    if (!req.user || !req.user.admin) {
       createError("you have no permission", 403);
     }
     await medicineDoc.destroy();

@@ -9,7 +9,7 @@ exports.createCprTime = async (req, res, next) => {
       startTime,
       stopTime,
       checkPulseTime,
-      CprCycleId,
+      CprCycleId: cprCycleId,
     });
     res.status(201).json({ cprTime });
   } catch (err) {

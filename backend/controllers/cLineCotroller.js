@@ -4,12 +4,12 @@ const createError = require("../utils/createError");
 //create
 exports.createCLine = async (req, res, next) => {
   try {
-    const { number, mark, time, CprCycleId } = req.body;
+    const { number, mark, cprCycleId } = req.body;
     const cLine = await CLine.create({
       number,
       mark,
-      time,
-      CprCycleId,
+
+      CprCycleId: cprCycleId,
     });
     res.status(201).json({ cLine });
   } catch (err) {

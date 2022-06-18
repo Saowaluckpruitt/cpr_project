@@ -4,11 +4,12 @@ const createError = require("../utils/createError");
 //create
 exports.createEtTube = async (req, res, next) => {
   try {
-    const { number, mark, time } = req.body;
+    const { number, mark, cprCycleId } = req.body;
+
     const etTube = await EtTube.create({
       number,
       mark,
-      time,
+      CprCycleId: cprCycleId,
     });
     res.status(201).json({ etTube });
   } catch (err) {
