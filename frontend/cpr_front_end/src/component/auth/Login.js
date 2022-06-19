@@ -21,7 +21,7 @@ export default function Login() {
     }
   };
   return (
-    <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto bg-py2 min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 my-bg">
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md ">
         <div className=" bg-black opacity-80 py-8 px-4 shadow sm:rounded-lg sm:px-10 ">
           <form
@@ -81,7 +81,7 @@ export default function Login() {
               </button>
               <Link
                 to="/register"
-                className="w-full py-3 px-4 text-black bg-lime hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="w-full py-3 px-4 text-black text-center bg-lime hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Register
               </Link>

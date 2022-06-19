@@ -5,6 +5,10 @@
 .bgpy {
   padding-top: 200px;
 }
+.bg-py2 {
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
 .my-bg {
   background-image: url("../public/pic/bg.png");
   background-size: cover;
@@ -23,6 +27,10 @@
 }
 .my-bg4 {
   background-image: url("../public/pic/smoke.jpg");
+  background-size: cover;
+}
+.my-bg5 {
+  background-image: url("../public/pic/red.jpg");
   background-size: cover;
 }
 

@@ -11,6 +11,8 @@ export default function CLine({ cprCycle }) {
 
     const Cline = await createCLine(number, mark, cprCycle.id);
     setClineId(Cline.id);
+    setNumber("");
+    setMark("");
   };
 
   return (

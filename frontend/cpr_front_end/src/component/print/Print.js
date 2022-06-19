@@ -22,69 +22,88 @@ export default function Print() {
   };
 
   return (
-    <div className="py-8">
+    <div className="max-w-7xl mx-auto  py-8 my-bg4 ">
       {cprCycles.map((cprCycle) => {
         return (
-          <div className="bg-gray-700 text-gray-400 overflow-hidden shadow rounded-lg mx-auto max-w-4xl  h-full my-4">
+          <div className="bg-black border-2 opacity-90 border-white text-gray-400 overflow-hidden shadow rounded-lg mx-auto max-w-4xl  h-full my-4">
             <div className="px-4 py-5 sm:p-6">
-              <h2 className="font-semibold text-lg">CprCycle</h2>
-              <h3>CPR Times</h3>
-              <ul>
+              <h2 className="font-semibold text-lg text-lime">CprCycle</h2>
+
+              <h3 className="text-lime  mt-5 mb-5 text-center">CPR Times</h3>
+              <ul className="border-2 border-lime rounded-lg mb-5 text-center">
                 {cprCycle.CprTimes.map((cprtime) => {
                   return <li>{cprtime.createdAt.toString()}</li>;
                 })}
               </ul>
-              <h3>Adrenaline Times</h3>
-              <ul>
+              <hr />
+              <h3 className="text-lime mt-5 mb-5 text-center">
+                Adrenaline Times
+              </h3>
+              <ul className="border-2 border-lime rounded-lg mb-5 text-center">
                 {cprCycle.AdrenalineTimes.map((adrenalineTime) => {
                   return <li>{adrenalineTime.createdAt.toString()}</li>;
                 })}
               </ul>
-              <h3>Et-Tube</h3>
+              <hr />
+              <h3 className="text-lime mt-5 mb-5 text-center">Et-Tube</h3>
               {cprCycle.EtTube && (
-                <>
-                  <h4>Time</h4>
-                  <p>{cprCycle.EtTube.createdAt.toString()}</p>
-                  <h4>Number</h4>
+                <div className="border-2 border-lime rounded-lg mb-5 text-center">
+                  <h4 className="text-white ">Number</h4>
                   <p>{cprCycle.EtTube.number}</p>
-                  <h4>Mark</h4>
+                  <hr />
+                  <h4 className="text-white">Mark</h4>
                   <p>{cprCycle.EtTube.mark}</p>
-                </>
+                  <hr />
+                  <h4 className="text-white">Time</h4>
+                  <p>{cprCycle.EtTube.createdAt.toString()}</p>
+                </div>
               )}
-
-              <h3>C-Line</h3>
+              <hr />
+              <h3 className="text-lime mt-5 mb-5 text-center">C-Line</h3>
               {cprCycle.CLine && (
-                <>
-                  <h4>Time</h4>
-                  <p>{cprCycle.CLine.createdAt.toString()}</p>
-                  <h4>Number</h4>
+                <div className="border-2 border-lime rounded-lg mb-5 text-center">
+                  <h4 className="text-white">Number</h4>
                   <p>{cprCycle.CLine.number}</p>
-                  <h4>Mark</h4>
+                  <hr />
+                  <h4 className="text-white">Mark</h4>
                   <p>{cprCycle.CLine.mark}</p>
-                </>
+                  <hr />
+                  <h4 className="text-white">Time</h4>
+                  <p>{cprCycle.CLine.createdAt.toString()}</p>
+                </div>
               )}
+              <hr />
 
-              <h3>EKG</h3>
+              <h3 className="text-lime mt-5 mb-5 text-center">EKG</h3>
               <ul>
                 {cprCycle.Ekgs.map((ekg) => {
                   return (
-                    <li>
-                      <p>{ekg.createdAt.toString()}</p>
-                      <p>{ekg.name}</p>
+                    <li
+                      className="border-2 border-lime rounded-lg mb-2 text-center"
+                      key="ekg2"
+                    >
+                      <p className="text-white">{ekg.name}</p>
                       <p>{ekg.charge}</p>
+                      <p>{ekg.createdAt.toString()}</p>
                     </li>
                   );
                 })}
               </ul>
+              <hr />
 
-              <h3>Medicine Take</h3>
+              <h3 className="text-lime mt-5 mb-5 text-center">Medicine Take</h3>
               <ul>
                 {cprCycle.MedicineTakes.map((medicineTake) => {
                   return (
-                    <li>
-                      <p>{medicineTake.createdAt.toString()}</p>
+                    <li
+                      className="border-2 border-lime rounded-lg mb-2 pl-3 text-center"
+                      key="medicineTake2"
+                    >
+                      <p className="text-white">
+                        {medicineTake.MedicineDoc.name}
+                      </p>
                       <p>{medicineTake.dose}</p>
-                      <p>{medicineTake.MedicineDoc.name}</p>
+                      <p>{medicineTake.createdAt.toString()}</p>
                       <button
                         className="text-red-500"
                         onClick={() => deleteClick(medicineTake.id)}
@@ -95,15 +114,18 @@ export default function Print() {
                   );
                 })}
               </ul>
-
-              <h3>Iv fluid</h3>
+              <hr />
+              <h3 className="text-lime mt-5 mb-5 text-center">Iv fluid</h3>
               <ul>
                 {cprCycle.IvFluids.map((ivFluid) => {
                   return (
-                    <li>
-                      <p>{ivFluid.createdAt.toString()}</p>
+                    <li
+                      className="border-2 border-lime rounded-lg mb-2 pl-2 text-center pt-2 "
+                      key="Ivfluid1"
+                    >
+                      <p className="text-white">{ivFluid.name}</p>
                       <p>{ivFluid.dose}</p>
-                      <p>{ivFluid.name}</p>
+                      <p>{ivFluid.createdAt.toString()}</p>
                     </li>
                   );
                 })}
