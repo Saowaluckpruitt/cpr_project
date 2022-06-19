@@ -10,6 +10,8 @@ export default function Ekg({ cprCycle }) {
       e.preventDefault();
 
       const ekg = await createEkg(name, charge, cprCycle.id);
+      setName("");
+      setCharge("");
       console.log(ekg);
     } catch (err) {
       console.log("Ekg confirm err");

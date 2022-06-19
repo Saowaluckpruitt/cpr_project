@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createCLine } from "../../service/client";
 
-export default function CLine(cprCycle) {
+export default function CLine({ cprCycle }) {
   const [cLineId, setClineId] = useState("");
   const [number, setNumber] = useState("");
   const [mark, setMark] = useState("");
@@ -15,7 +15,7 @@ export default function CLine(cprCycle) {
 
   return (
     <div className="mt-4 block  bg-black opacity-82  border-2 border-lime ">
-      <form method="POST" onClick={setCLine}>
+      <form method="POST" onSubmit={setCLine}>
         <span className="w-full h-full object-center object-cover lg:w-full lg:h-full text-black bg-lime">
           C-line.
         </span>

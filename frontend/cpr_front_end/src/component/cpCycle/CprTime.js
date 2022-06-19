@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import { createCprTime } from "../../service/client";
+import { createCprTime, updateCprTime } from "../../service/client";
 
 export default function CprTime({ cprCycle }) {
   const Ref = useRef(null);
+  const cprTimeRef = useRef();
 
   const [timer, setTimer] = useState("00:00:00");
   const [cprTime, setCprTime] = useState(null);
@@ -33,20 +34,33 @@ export default function CprTime({ cprCycle }) {
       setTimer("00:02:00");
       if (Ref.current) clearInterval(Ref.current);
       const id = setInterval(() => {
-        formatTime(e);
+        if (new Date() > e) {
+          if (cprTimeRef.current) {
+            updateCprTime(cprTimeRef.current.id, new Date());
+          }
+          createCprTime(cprCycle.startTime, cprCycle.id).then((cprtime) => {
+            setCprTime(cprtime);
+            cprTimeRef.current = cprtime;
+            formatTime(cprtime.createdAt);
+            clearTime(getDateTime());
+          });
+        } else {
+          formatTime(e);
+        }
       }, 1000);
       Ref.current = id;
     };
 
     const getDateTime = () => {
       let stopTime = new Date();
-      stopTime.setSeconds(stopTime.getSeconds() + 180);
+      stopTime.setSeconds(stopTime.getSeconds() + 120);
       return stopTime;
     };
 
-    createCprTime(cprCycle.startTime, cprCycle.id).then((cprtime) =>
-      setCprTime(cprtime)
-    );
+    createCprTime(cprCycle.startTime, cprCycle.id).then((cprtime) => {
+      setCprTime(cprtime);
+      cprTimeRef.current = cprtime;
+    });
     clearTime(getDateTime());
   }, [cprCycle]);
 

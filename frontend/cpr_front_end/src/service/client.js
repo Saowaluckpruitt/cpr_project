@@ -15,6 +15,13 @@ export const createAdrenalineTime = async (startTime, cprCycleId) => {
   return createAdrenalineTime.data.adrenalineTime;
 };
 
+export const updateAdrenalineTime = async (id, stopTime) => {
+  const updateCprTime = await axios.patch("/AdrenalineTime/" + id, {
+    stopTime,
+  });
+  return updateCprTime.data.cprTime;
+};
+
 export const createCLine = async (number, mark, cprCycleId) => {
   const takeCLine = await axios.post("/cLine", {
     number,
@@ -52,7 +59,11 @@ export const createCprTime = async (startTime, cprCycleId) => {
     startTime,
     cprCycleId,
   });
-  console.log(createCprTime);
+  return createCprTime.data.cprTime;
+};
+
+export const updateCprTime = async (id, stopTime) => {
+  const createCprTime = await axios.patch("/cprTime/" + id, { stopTime });
   return createCprTime.data.cprTime;
 };
 

@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
-import { createCprTime } from "../../service/client";
+import { updateAdrenalineTime } from "../../service/client";
 import { createAdrenalineTime } from "../../service/client";
 
 export default function AdrenalineTime({ cprCycle }) {
   const Ref = useRef(null);
+  const cprTimeRef = useRef();
 
   const [timer, setTimer] = useState("00:00:00");
   const [cprTime, setCprTime] = useState(null);
@@ -34,7 +35,22 @@ export default function AdrenalineTime({ cprCycle }) {
       setTimer("00:03:00");
       if (Ref.current) clearInterval(Ref.current);
       const id = setInterval(() => {
-        formatTime(e);
+        if (new Date() > e) {
+          if (cprTimeRef.current) {
+            updateAdrenalineTime(cprTimeRef.current.id, new Date());
+          }
+          createAdrenalineTime(
+            AdrenalineTime.startTime,
+            AdrenalineTime.id
+          ).then((adrenalinetime) => {
+            setCprTime(adrenalinetime);
+            cprTimeRef.current = adrenalinetime;
+            formatTime(adrenalinetime.createdAt);
+            clearTime(getDateTime());
+          });
+        } else {
+          formatTime(e);
+        }
       }, 1000);
       Ref.current = id;
     };
@@ -45,8 +61,11 @@ export default function AdrenalineTime({ cprCycle }) {
       return stopTime;
     };
 
-    createCprTime(cprCycle.startTime, cprCycle.id).then((cprtime) =>
-      setCprTime(cprtime)
+    createAdrenalineTime(AdrenalineTime.startTime, AdrenalineTime.id).then(
+      (adrenalinetime) => {
+        setCprTime(adrenalinetime);
+        cprTimeRef.current = adrenalinetime;
+      }
     );
     clearTime(getDateTime());
   }, [cprCycle]);

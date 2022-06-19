@@ -9,15 +9,17 @@ export default function EtTube({ cprCycle }) {
     try {
       e.preventDefault();
       const etTube = await createEtTube(number, mark, cprCycle.id);
+      setNumber("");
+      setMark("");
       console.log(etTube);
     } catch (err) {
-      console.log("et tube err");
+      console.log("et tube err: " + err);
     }
   };
 
   return (
     <div className="mt-4 block bg-black opacity-82  border-2 border-lime">
-      <form method="POST" onClick={handleConfirmEtTube}>
+      <form method="POST" onSubmit={handleConfirmEtTube}>
         <span className="w-full h-full object-center object-cover lg:w-full lg:h-full text-black bg-lime">
           {" "}
           Et-tube.

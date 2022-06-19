@@ -26,7 +26,7 @@ export default function MedicineLibrary({ setCurrentMedicineDoc }) {
               key={doc.id}
               className="w-full h-70 rounded-md overflow-hidden group-hover:opacity-75 lg:h-72 xl:h-80"
             >
-              <div className="group relative   ">
+              <div className="group">
                 <img
                   src={doc.medicinePic}
                   alt={doc.name}
@@ -36,7 +36,6 @@ export default function MedicineLibrary({ setCurrentMedicineDoc }) {
 
               <h3 className="text-xl text-black text-center border-2 bg-white ">
                 <button onClick={() => setCurrentMedicineDoc(doc)}>
-                  <span aria-hidden="true" className="absolute inset-0"></span>
                   {doc.name}
                 </button>
               </h3>

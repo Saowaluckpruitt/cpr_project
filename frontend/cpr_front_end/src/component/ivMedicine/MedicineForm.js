@@ -16,11 +16,11 @@ export default function MedicineForm({ doc, cprCycle }) {
     }
   };
   return (
-    <div className="relative border border-lime rounded-md px-3 py-2  mt-4 ml-2 shadow-sm focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600">
+    <div className="border border-lime rounded-md px-3 py-2  mt-4 ml-2 shadow-sm focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600">
       <h3>{doc.name}</h3>
       <label
         htmlFor="dose"
-        className="absolute -top-2 left-2 -mt-px inline-block px-1 bg-black text-xs font-medium text-white"
+        className="-mt-px inline-block px-1 bg-black text-xs font-medium text-white"
       ></label>
       <input
         type="text"

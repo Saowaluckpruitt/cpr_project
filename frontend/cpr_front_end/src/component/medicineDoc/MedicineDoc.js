@@ -15,8 +15,8 @@ export default function MedicineDoc({ medicineDoc }) {
             src={medicineDoc.medicinePic}
             alt={medicineDoc.name}
           />
-          <div className=" h-full group aspect-w-2 aspect-h-1 rounded-lg overflow-hidden sm:relative sm:aspect-none sm:h-full">
-            <div className="h-full flex items-end sm:absolute sm:inset-0">
+          <div className=" h-full group aspect-w-2 aspect-h-1 rounded-lg overflow-hidden">
+            <div className="h-full flex items-end">
               <Detail text={medicineDoc.detail} />
             </div>
           </div>
