@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContextProvider";
 import { ErrorContext } from "../../contexts/ErrorContext";
 
@@ -17,10 +17,13 @@ export default function Register() {
 
   const { register } = useContext(AuthContext);
   const { setError } = useContext(ErrorContext);
+
+  const navigate = useNavigate();
   const handleSubmitRegister = async (e) => {
     try {
       e.preventDefault();
       await register({ userName, phoneNumber, password, confirmPassword });
+      navigate("");
     } catch (err) {
       setError(err.response.data.message);
     }

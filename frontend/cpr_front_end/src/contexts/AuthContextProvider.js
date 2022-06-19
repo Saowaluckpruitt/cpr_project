@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../config/axios";
+
 import { getToken, clearToken, setToken } from "../service/localStorageService";
 
 const AuthContext = createContext();
@@ -15,6 +16,8 @@ function AuthContextProvider({ children }) {
       if (!token) {
         navigate("/login");
       }
+      const resMe = await axios.get("/users/me");
+      setUser(resMe.data.user);
     };
 
     fetchMe();
@@ -23,6 +26,8 @@ function AuthContextProvider({ children }) {
   const register = async (input) => {
     const res = await axios.post("/register", input);
     setToken(res.data.token);
+    const resMe = await axios.get("/users/me");
+    setUser(resMe.data.user);
   };
 
   const login = async (userName, password) => {
@@ -35,6 +40,7 @@ function AuthContextProvider({ children }) {
   const logout = () => {
     clearToken();
     setUser(null);
+    navigate("/login");
   };
 
   return (

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { createCprCycle } from "../../service/client";
 import CprTime from "./CprTime";
 import AdrenalineTime from "./AdrenalineTime";
@@ -22,7 +23,8 @@ export default function LinkCprAdrenalineTime() {
   return (
     <>
       <div className="max-w-7xl mx-auto   sm:py-24 sm:px-6 lg:px-8 my-bg bgpy ">
-        <button
+        <Link
+          to="/print"
           type="button"
           className="flex items-center justify-center mt-1 mr-1 px-6 py-4 float-right	
           border border-transparent shadow-sm text-base font-medium    text-black bg-lime hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -38,7 +40,7 @@ export default function LinkCprAdrenalineTime() {
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
           </svg>
-        </button>
+        </Link>
         <TimerStarCpr />
         <div className="mt-20 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8 ">
           <CprTime cprCycle={cprCycle} />

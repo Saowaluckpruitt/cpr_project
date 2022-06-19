@@ -1,5 +1,9 @@
 import axios from "../config/axios";
 
+export const listCprCycles = async () => {
+  const cprCycles = await axios.get("/cprCycle");
+  return cprCycles.data.cprCycles;
+};
 export const createCprCycle = async (cprStart) => {
   const startCprCycle = await axios.post("/cprCycle", { cprStart });
 
@@ -98,4 +102,9 @@ export const createMedicineTake = async (dose, cprCycleId, medicineDocId) => {
   });
 
   return medicineTake.data.medicineTake;
+};
+
+export const deleteMedicineTake = async (medicineTakeId) => {
+  const medicineTake = await axios.delete(`medicineTake/${medicineTakeId}`);
+  return true;
 };

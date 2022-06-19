@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContextProvider";
 import { ErrorContext } from "../../contexts/ErrorContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [userName, setUserName] = useState("");
@@ -8,11 +9,13 @@ export default function Login() {
 
   const { login } = useContext(AuthContext);
   const { setError } = useContext(ErrorContext);
+  const navigate = useNavigate();
 
   const handleSubmitLogin = async (e) => {
     try {
       e.preventDefault();
       await login(userName, password);
+      navigate("");
     } catch (err) {
       setError(err.response.data.message);
     }
@@ -69,12 +72,18 @@ export default function Login() {
               </div>
             </div>
 
-            <div>
+            <div className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium ">
               <button
                 type="submit"
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-lime hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className=" w-full mr-2 text-black bg-lime hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Log in
+              </button>
+              <button
+                type="submit"
+                className="w-full py-3  text-black bg-lime hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Register
               </button>
             </div>
           </form>
