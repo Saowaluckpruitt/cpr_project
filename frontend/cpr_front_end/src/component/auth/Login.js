@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContextProvider";
 import { ErrorContext } from "../../contexts/ErrorContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Login() {
   const [userName, setUserName] = useState("");
@@ -79,12 +79,12 @@ export default function Login() {
               >
                 Log in
               </button>
-              <button
-                type="submit"
-                className="w-full py-3  text-black bg-lime hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              <Link
+                to="/register"
+                className="w-full py-3 px-4 text-black bg-lime hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Register
-              </button>
+              </Link>
             </div>
           </form>
         </div>

@@ -4,12 +4,6 @@ import { AuthContext } from "../../contexts/AuthContextProvider";
 import { ErrorContext } from "../../contexts/ErrorContext";
 
 export default function Register() {
-  // const [input, setInput] = useState({
-  //   userName: "",
-  //   phoneNumber: "",
-  //   password: "",
-  //   confirmPassword: "",
-  // });
   const [userName, setUserName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
