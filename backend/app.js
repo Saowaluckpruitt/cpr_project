@@ -20,10 +20,13 @@ const etTubeRoute = require("./routes/etTube");
 const cLineRoute = require("./routes/cLineRote");
 const adrenalineRoute = require("./routes/adrenalineTimeRoute");
 const medicineTakeRoute = require("./routes/medicineTakeRoute");
+const userRoute = require("./routes/userRoute");
+const authController = require("./controllers/authController");
 
 //middleware
 const errorMiddleware = require("./middlewares/error");
 const notFoundMiddleware = require("./middlewares/notFound");
+const authenticate = require("./middlewares/authenticate");
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -36,6 +39,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
 
+//user
+app.use("/users", authenticate, userRoute);
 //medicineDoc
 app.use("/medicineDoc", medicineDocRoute);
 

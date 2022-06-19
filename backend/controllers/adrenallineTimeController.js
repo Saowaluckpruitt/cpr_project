@@ -22,9 +22,9 @@ exports.createAdrenalineTime = async (req, res, next) => {
 exports.updateAdrenalineTime = async (req, res, next) => {
   try {
     const { startTime, stopTime } = req.body;
-    const { adrenalineId } = req.params;
+    const { adrenalineTimeId } = req.params;
     const adrenalineTime = await AdrenalineTime.findOne({
-      where: { id: adrenalineId },
+      where: { id: adrenalineTimeId },
     });
     if (!adrenalineTime) {
       createError("medicineDoc not found", 400);

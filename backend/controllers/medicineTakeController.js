@@ -3,7 +3,6 @@ const createError = require("../utils/createError");
 
 //create
 exports.createMedicineTake = async (req, res, next) => {
-  console.log("medicine");
   try {
     const { dose, medicineDocId, cprCycleId } = req.body;
     const medicineTake = await MedicineTake.create({
