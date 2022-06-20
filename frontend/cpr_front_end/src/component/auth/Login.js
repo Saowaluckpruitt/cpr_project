@@ -21,7 +21,7 @@ export default function Login() {
     }
   };
   return (
-    <div className="max-w-7xl mx-auto bg-py2 min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 my-bg">
+    <div className="max-w-7xl mx-auto  bg-py2 min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 my-bg">
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md ">
         <div className=" bg-black opacity-80 py-8 px-4 shadow sm:rounded-lg sm:px-10 ">
           <form

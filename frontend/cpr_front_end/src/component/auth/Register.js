@@ -24,7 +24,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className=" max-w-7xl mx-auto  bg-py2 min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 my-bg2">
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md ">
         <div className=" bg-black opacity-80 py-8 px-4 shadow sm:rounded-lg sm:px-10 ">
           <form

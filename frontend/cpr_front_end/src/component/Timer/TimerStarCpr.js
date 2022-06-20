@@ -29,9 +29,6 @@ export default function TimerStarCpr() {
     setTimer("00:30:00");
     if (Ref.current) clearInterval(Ref.current);
     const id = setInterval(() => {
-      // if (new Date() > e) {
-      //   // Stop  and navigate  to print
-      // }
       formatTime(e);
     }, 1000);
     Ref.current = id;

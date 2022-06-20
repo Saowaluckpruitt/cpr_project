@@ -25,14 +25,21 @@ export default function Print() {
     <div className="max-w-7xl mx-auto  py-8 my-bg4 ">
       {cprCycles.map((cprCycle) => {
         return (
-          <div className="bg-black border-2 opacity-90 border-white text-gray-400 overflow-hidden shadow rounded-lg mx-auto max-w-4xl  h-full my-4">
+          <div
+            key={`cpr-cycle-${cprCycle.id}`}
+            className="bg-black border-2 opacity-90 border-white text-gray-400 overflow-hidden shadow rounded-lg mx-auto max-w-4xl  h-full my-4"
+          >
             <div className="px-4 py-5 sm:p-6">
               <h2 className="font-semibold text-lg text-lime">CprCycle</h2>
 
               <h3 className="text-lime  mt-5 mb-5 text-center">CPR Times</h3>
               <ul className="border-2 border-lime rounded-lg mb-5 text-center">
                 {cprCycle.CprTimes.map((cprtime) => {
-                  return <li>{cprtime.createdAt.toString()}</li>;
+                  return (
+                    <li key={`cpr-time-${cprtime.id}`}>
+                      {cprtime.createdAt.toString()}
+                    </li>
+                  );
                 })}
               </ul>
               <hr />
@@ -41,7 +48,11 @@ export default function Print() {
               </h3>
               <ul className="border-2 border-lime rounded-lg mb-5 text-center">
                 {cprCycle.AdrenalineTimes.map((adrenalineTime) => {
-                  return <li>{adrenalineTime.createdAt.toString()}</li>;
+                  return (
+                    <li key={`adrenaline-time-${adrenalineTime.id}`}>
+                      {adrenalineTime.createdAt.toString()}
+                    </li>
+                  );
                 })}
               </ul>
               <hr />
@@ -80,7 +91,7 @@ export default function Print() {
                   return (
                     <li
                       className="border-2 border-lime rounded-lg mb-2 text-center"
-                      key="ekg2"
+                      key={`ekg2-${ekg.id}`}
                     >
                       <p className="text-white">{ekg.name}</p>
                       <p>{ekg.charge}</p>
@@ -97,7 +108,7 @@ export default function Print() {
                   return (
                     <li
                       className="border-2 border-lime rounded-lg mb-2 pl-3 text-center"
-                      key="medicineTake2"
+                      key={`medicineTake2-${medicineTake.id}`}
                     >
                       <p className="text-white">
                         {medicineTake.MedicineDoc.name}
@@ -121,7 +132,7 @@ export default function Print() {
                   return (
                     <li
                       className="border-2 border-lime rounded-lg mb-2 pl-2 text-center pt-2 "
-                      key="Ivfluid1"
+                      key={`Ivfluid1-${ivFluid.id}`}
                     >
                       <p className="text-white">{ivFluid.name}</p>
                       <p>{ivFluid.dose}</p>

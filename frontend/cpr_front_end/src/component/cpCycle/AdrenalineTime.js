@@ -7,7 +7,7 @@ export default function AdrenalineTime({ cprCycle }) {
   const adrenalineTimeRef = useRef();
 
   const [timer, setTimer] = useState("00:00:00");
-  const [cprTime, setCprTime] = useState(null);
+  const [adrenalineTime, setAdrenalineTime] = useState(null);
 
   useEffect(() => {
     const getTimerAlert = (e) => {
@@ -41,7 +41,7 @@ export default function AdrenalineTime({ cprCycle }) {
           }
           createAdrenalineTime(AdrenalineTime.startTime, cprCycle.id).then(
             (adrenalinetime) => {
-              setCprTime(adrenalinetime);
+              setAdrenalineTime(adrenalinetime);
               adrenalineTimeRef.current = adrenalinetime;
               formatTime(adrenalinetime.createdAt);
               clearTime(getDateTime());
@@ -62,7 +62,7 @@ export default function AdrenalineTime({ cprCycle }) {
 
     createAdrenalineTime(AdrenalineTime.startTime, AdrenalineTime.id).then(
       (adrenalinetime) => {
-        setCprTime(adrenalinetime);
+        setAdrenalineTime(adrenalinetime);
         adrenalineTimeRef.current = adrenalinetime;
       }
     );
