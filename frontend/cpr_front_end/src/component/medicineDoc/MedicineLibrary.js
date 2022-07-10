@@ -7,7 +7,7 @@ export default function MedicineLibrary({ setCurrentMedicineDoc }) {
     if (!medicineDocs) {
       listMedicineDocs().then((docs) => setMedicineDocs(docs));
     }
-  });
+  }, []);
 
   if (!medicineDocs) {
     return <></>;

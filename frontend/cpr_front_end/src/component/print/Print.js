@@ -1,43 +1,48 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 import { listCprCycles, deleteMedicineTake } from "../../service/client";
 
 export default function Print() {
   const [cprCycles, setCprCycles] = useState();
   const navigate = useNavigate();
+
   useEffect(() => {
     if (!cprCycles) {
-      listCprCycles().then((docs) => setCprCycles(docs));
+      listCprCycles().then((cprcycles) => setCprCycles(cprcycles));
     }
   });
-
+  // const cprcycles   =   await listCprCycle()
+  // setCprCycle(cprcycles)
   if (!cprCycles) {
     return <></>;
   }
 
   const deleteClick = async (id) => {
     await deleteMedicineTake(id).then(() =>
-      listCprCycles().then((docs) => setCprCycles(docs))
+      listCprCycles().then((cprcycles) => setCprCycles(cprcycles))
     );
   };
 
   return (
     <div className="max-w-7xl mx-auto  py-8 my-bg4 ">
-      {cprCycles.map((cprCycle) => {
+      {cprCycles.map((cprCycle, i) => {
         return (
           <div
             key={`cpr-cycle-${cprCycle.id}`}
             className="bg-black border-2 opacity-90 border-white text-gray-400 overflow-hidden shadow rounded-lg mx-auto max-w-4xl  h-full my-4"
           >
             <div className="px-4 py-5 sm:p-6">
-              <h2 className="font-semibold text-lg text-lime">CprCycle</h2>
+              <h2 className="font-semibold text-lg text-lime">
+                CprCycle {i + 1}
+              </h2>
 
               <h3 className="text-lime  mt-5 mb-5 text-center">CPR Times</h3>
               <ul className="border-2 border-lime rounded-lg mb-5 text-center">
                 {cprCycle.CprTimes.map((cprtime) => {
                   return (
                     <li key={`cpr-time-${cprtime.id}`}>
-                      {cprtime.createdAt.toString()}
+                      {moment(cprtime.createdAt).format("YY/MM/DD HH:mm:ss")}
                     </li>
                   );
                 })}
@@ -50,7 +55,7 @@ export default function Print() {
                 {cprCycle.AdrenalineTimes.map((adrenalineTime) => {
                   return (
                     <li key={`adrenaline-time-${adrenalineTime.id}`}>
-                      {adrenalineTime.createdAt.toString()}
+                      {moment(adrenalineTime).format("YY/MM/DD HH:mm:ss")}
                     </li>
                   );
                 })}
@@ -66,7 +71,11 @@ export default function Print() {
                   <p>{cprCycle.EtTube.mark}</p>
                   <hr />
                   <h4 className="text-white">Time</h4>
-                  <p>{cprCycle.EtTube.createdAt.toString()}</p>
+                  <p>
+                    {moment(cprCycle.EtTube.createdAt).format(
+                      "YY/MM/DD HH:mm:ss"
+                    )}
+                  </p>
                 </div>
               )}
               <hr />
@@ -80,7 +89,11 @@ export default function Print() {
                   <p>{cprCycle.CLine.mark}</p>
                   <hr />
                   <h4 className="text-white">Time</h4>
-                  <p>{cprCycle.CLine.createdAt.toString()}</p>
+                  <p>
+                    {moment(cprCycle.CLine.createdAt).format(
+                      "YY/MM/DD HH:mm:ss"
+                    )}
+                  </p>
                 </div>
               )}
               <hr />
@@ -95,7 +108,7 @@ export default function Print() {
                     >
                       <p className="text-white">{ekg.name}</p>
                       <p>{ekg.charge}</p>
-                      <p>{ekg.createdAt.toString()}</p>
+                      <p>{moment(ekg.createdAt).format("YY/MM/DD HH:mm:ss")}</p>
                     </li>
                   );
                 })}
@@ -114,7 +127,11 @@ export default function Print() {
                         {medicineTake.MedicineDoc.name}
                       </p>
                       <p>{medicineTake.dose}</p>
-                      <p>{medicineTake.createdAt.toString()}</p>
+                      <p>
+                        {moment(medicineTake.createdAt).format(
+                          "YY/MM/DD HH:mm:ss"
+                        )}
+                      </p>
                       <button
                         className="text-red-500"
                         onClick={() => deleteClick(medicineTake.id)}
@@ -136,7 +153,9 @@ export default function Print() {
                     >
                       <p className="text-white">{ivFluid.name}</p>
                       <p>{ivFluid.dose}</p>
-                      <p>{ivFluid.createdAt.toString()}</p>
+                      <p>
+                        {moment(ivFluid.createdAt).format("YY/MM/DD HH:mm:ss")}
+                      </p>
                     </li>
                   );
                 })}

@@ -33,22 +33,22 @@ export default function CprTime({ cprCycle }) {
     const clearTime = (e) => {
       setTimer("00:02:00");
       if (Ref.current) clearInterval(Ref.current);
-      const id = setInterval(() => {
+      const interval = setInterval(() => {
         if (new Date() > e) {
           if (cprTimeRef.current) {
-            updateCprTime(cprTimeRef.current.id, new Date());
+            updateCprTime(cprTimeRef.current.id, new Date()); //make stoptime
           }
-          createCprTime(cprCycle.startTime, cprCycle.id).then((cprtime) => {
-            setCprTime(cprtime);
-            cprTimeRef.current = cprtime;
-            formatTime(cprtime.createdAt);
+          createCprTime(new Date(), cprCycle.id).then((time) => {
+            setCprTime(time);
+            cprTimeRef.current = time;
+            formatTime(time.createdAt);
             clearTime(getDateTime());
           });
         } else {
           formatTime(e);
         }
       }, 1000);
-      Ref.current = id;
+      Ref.current = interval;
     };
 
     const getDateTime = () => {
@@ -61,6 +61,7 @@ export default function CprTime({ cprCycle }) {
       setCprTime(cprtime);
       cprTimeRef.current = cprtime;
     });
+
     clearTime(getDateTime());
   }, [cprCycle]);
 

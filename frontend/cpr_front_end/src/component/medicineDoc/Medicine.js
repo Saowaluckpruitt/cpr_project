@@ -11,3 +11,4 @@ export default function Medicine({ cprCycle }) {
     </>
   );
 }
+// line 9 when click btn   setCurrentMEdDoc    at libary it will show meddicineDoc coz it change state in currentMedicineDoc

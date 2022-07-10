@@ -4,6 +4,23 @@ export default function TimerStarCpr() {
   const Ref = useRef(null);
 
   const [timer, setTimer] = useState("00:00");
+  useEffect(() => {
+    clearTime(getDateTiime());
+  }, []);
+
+  const clearTime = (e) => {
+    setTimer("00:30:00");
+    if (Ref.current) clearInterval(Ref.current);
+    const interval = setInterval(() => {
+      formatTime(e);
+    }, 1000);
+    Ref.current = interval;
+  };
+  const getDateTiime = () => {
+    let stopTime = new Date();
+    stopTime.setSeconds(stopTime.getSeconds() + 1800);
+    return stopTime;
+  };
   const getTimerAlert = (e) => {
     const total = Date.parse(e) - Date.parse(new Date());
     const seconds = Math.floor((total / 1000) % 60);
@@ -23,28 +40,6 @@ export default function TimerStarCpr() {
           (seconds > 9 ? seconds : "0" + seconds)
       );
     }
-  };
-
-  const clearTime = (e) => {
-    setTimer("00:30:00");
-    if (Ref.current) clearInterval(Ref.current);
-    const id = setInterval(() => {
-      formatTime(e);
-    }, 1000);
-    Ref.current = id;
-  };
-
-  const getDateTiime = () => {
-    let stopTime = new Date();
-    stopTime.setSeconds(stopTime.getSeconds() + 1800);
-    return stopTime;
-  };
-
-  useEffect(() => {
-    clearTime(getDateTiime());
-  }, []);
-  const onClickStart = (e) => {
-    clearTime(getDateTiime());
   };
 
   return (
